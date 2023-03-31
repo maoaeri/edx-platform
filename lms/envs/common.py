@@ -5301,3 +5301,7 @@ ENTERPRISE_PLOTLY_SECRET = "I am a secret"
 ENTERPRISE_MANUAL_REPORTING_CUSTOMER_UUIDS = []
 
 AVAILABLE_DISCUSSION_TOURS = []
+
+######################## Subscriptions API SETTINGS ########################
+SUBSCRIPTIONS_ROOT_URL = ""
+SUBSCRIPTIONS_API_PATH = f"{SUBSCRIPTIONS_ROOT_URL}/api/v1/stripe-subscription/"

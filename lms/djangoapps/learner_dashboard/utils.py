@@ -6,7 +6,11 @@ from django.core.exceptions import ObjectDoesNotExist
 from opaque_keys.edx.keys import CourseKey
 
 from common.djangoapps.student.roles import GlobalStaff
-from lms.djangoapps.learner_dashboard.config.waffle import ENABLE_MASTERS_PROGRAM_TAB_VIEW, ENABLE_PROGRAM_TAB_VIEW
+from lms.djangoapps.learner_dashboard.config.waffle import (
+    ENABLE_B2C_SUBSCRIPTIONS,
+    ENABLE_MASTERS_PROGRAM_TAB_VIEW,
+    ENABLE_PROGRAM_TAB_VIEW
+)
 from lms.djangoapps.program_enrollments.api import get_program_enrollment
 
 FAKE_COURSE_KEY = CourseKey.from_string('course-v1:fake+course+run')
@@ -46,3 +50,10 @@ def is_enrolled_or_staff(request, program_uuid):
     except ObjectDoesNotExist:
         return False
     return True
+
+
+def b2c_subscriptions_is_enabled() -> bool:
+    """
+    Check if B2C program subscriptions flag is enabled.
+    """
+    return ENABLE_B2C_SUBSCRIPTIONS.is_enabled()
